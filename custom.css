@@ -1,0 +1,276 @@
+body {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: rgb(246, 167, 2);
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+}
+
+/******** LANDING PAGE ********/
+
+img {
+  position: absolute;
+}
+
+#hero_img {
+  height: 100vh;
+  max-height: 120vw;
+  margin-left: 0px;
+  bottom: 0;
+  transition: transform 1.5s;
+}
+
+#peaking_face_img,
+.contact-me #peaking_face_img.hover {
+  width: 40vw;
+  right: 0vw;
+  top: 10vh;
+  transform: translate(40vw, 0);
+  transition: transform 0.5s;
+  z-index: 1;
+}
+
+#peaking_face_img.hover {
+  transform: translate(26vw, 0);
+}
+
+.contact-me #face_img {
+  transform: translate(0, 0);
+}
+
+button {
+  /* transition: transform 1s; */
+  cursor: pointer;
+  font-weight: 400;
+  color: rgb(242, 230, 230);
+  border: 3px solid rgb(242, 230, 230);
+  -webkit-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22);
+  box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.22);
+
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 110px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0.45rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  -webkit-transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 1.5s;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 1.5s,
+    -webkit-box-shadow 0.15s ease-in-out;
+  overflow: visible;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button:hover,
+button:focus {
+  background: rgb(242, 230, 230) !important;
+  border-color: rgb(242, 230, 230) !important;
+}
+
+#contact_me_button {
+  margin: 35vh 0 0 0;
+  right: 20vw;
+  background: rgb(238, 150, 41);
+}
+
+#contact_me_button:hover {
+  color: rgb(238, 150, 41);
+}
+
+#about_me_button {
+  margin: 25vh 0 0 0;
+  right: 22vw;
+  background: rgb(238, 150, 40);
+}
+
+#about_me_button:hover {
+  color: rgb(238, 150, 40);
+}
+
+button:focus {
+  color: black !important;
+}
+
+/******** OFF OF LANDING PAGE ********/
+
+.not-home #home_section {
+  display: none;
+}
+
+.close-icon {
+  display: none;
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  margin-left: 2.5vw;
+  margin-top: 2.5vw;
+  /* Make sure this can't be clicked on when not on home
+        It also doesn't click well - figure that out
+    */
+}
+
+.close-icon:before,
+.close-icon:after {
+  position: absolute;
+  top: 2.5vw;
+  content: " ";
+  height: 0px;
+  width: 5vw;
+  background-color: black;
+  transition: transform 1s, height 1s;
+}
+
+.not-home .close-icon {
+  display: inherit;
+}
+
+.not-home .close-icon:before {
+  transform: rotate(45deg);
+}
+.not-home .close-icon:after {
+  transform: rotate(-45deg);
+}
+.not-home .close-icon:before,
+.not-home .close-icon:after {
+  height: 2px;
+}
+
+/******* CONTENT SECTIONS *******/
+
+.content-section {
+  position: absolute;
+  width: 80vw;
+  padding: 5vw;
+  opacity: 0;
+}
+
+.square {
+  position: absolute;
+  margin-left: 10vw;
+}
+
+/******* ABOUT ME *******/
+
+.about-me-square {
+  height: 100vh;
+  width: 0px;
+  background-color: rgb(238, 150, 40);
+  transition: width 1.5s, opacity 1.5s, transform 1.5s;
+}
+
+.about-me .about-me-square {
+  width: 90vw;
+  display: inherit;
+}
+
+#about_me_section {
+  display: none;
+  transform: translate(-90vw, 0);
+  transition: width 1.5s, opacity 1.5s, transform 1.5s;
+}
+
+.about-me #about_me_section {
+  display: inherit;
+  transform: translate(10vw, 0);
+  opacity: 1;
+}
+
+.about-me #home button {
+  transform: translate(100vw);
+}
+
+.about-me #hero_img {
+  transform: translate(100vw, 0);
+}
+
+/******* CONTACT ME *******/
+
+.contact-icons {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  justify-content: space-around;
+}
+
+.contact-icons a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.25s;
+  padding: 15px;
+}
+
+.contact-icons a:hover {
+  color: rgb(242, 230, 230);
+}
+
+#face_img {
+  /* width: 45vw; */
+  max-height: 80vh;
+  right: 0;
+  bottom: 0;
+  transform: translate(0, 100vh);
+  transition: transform 1s;
+  z-index: 1;
+}
+
+.contact-me #face_img {
+  transform: translate(0, 0);
+}
+
+.left-contact-me-square {
+  background-color: rgb(238, 150, 41);
+  width: 45vw;
+  height: 0;
+  transition: height 1s;
+}
+
+.right-contact-me-square {
+  margin-left: 55vw;
+  background-color: rgb(246, 167, 2);
+  width: 45vw;
+  height: 0;
+  transition: height 1s;
+}
+
+.contact-me .left-contact-me-square,
+.contact-me .right-contact-me-square {
+  height: 100vh;
+}
+
+#contact_me_section {
+  width: 35vw;
+  transform: translate(10vw, 100vh);
+  display: none;
+}
+
+.contact-me #contact_me_section {
+  transform: translate(10vw, 0);
+  opacity: 1;
+  display: inherit;
+}
+
+.contact-me #hero_img {
+  transform: translate(10vw, 0);
+}
