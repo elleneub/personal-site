@@ -7,10 +7,13 @@
     <script src="https://use.fontawesome.com/f380a848c4.js"></script>
     <script>
         function applyHomeStyles(el, goingHome) {
+            var homeSection = document.getElementById("home_section");
             if (goingHome) {
                 el.classList.remove("not-home");
                 el.classList.add("home");
+                homeSection.setAttribute("aria-hidden", "false")
             } else {
+                homeSection.setAttribute("aria-hidden", "true")
                 el.classList.remove("home");
                 el.classList.add("not-home");
             }

@@ -115,11 +115,6 @@ button:focus {
 }
 
 /******** OFF OF LANDING PAGE ********/
-
-.not-home #home_section {
-  display: none;
-}
-
 .close-icon {
   display: none;
   position: absolute;
