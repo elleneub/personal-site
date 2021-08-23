@@ -5,17 +5,27 @@
     <meta charset="utf-8">
     <meta name="description" content="Elle Neubauer: Software Engineer, Organizer, Founder, Leader">
     <script src="https://use.fontawesome.com/f380a848c4.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Besley&family=Pacifico&display=swap" rel="stylesheet">
     <script>
         function applyHomeStyles(el, goingHome) {
             var homeSection = document.getElementById("home_section");
+            var closeIcon = document.getElementById("close_icon");
+            var contactMeSection = document.getElementById("contact_me_section");
+            var aboutMeSection = document.getElementById("about_me_section");
             if (goingHome) {
                 el.classList.remove("not-home");
                 el.classList.add("home");
                 homeSection.setAttribute("aria-hidden", "false")
+                closeIcon.setAttribute("aria-hidden", "true")
+                contactMeSection.setAttribute("aria-hidden", "true")
+                aboutMeSection.setAttribute("aria-hidden", "true")
             } else {
-                homeSection.setAttribute("aria-hidden", "true")
                 el.classList.remove("home");
                 el.classList.add("not-home");
+                homeSection.setAttribute("aria-hidden", "true")
+                closeIcon.setAttribute("aria-hidden", "false")
             }
         }
 
@@ -25,7 +35,8 @@
             applyHomeStyles(element, false);
             var aboutMeEl = document.getElementById("about_me_header");
             aboutMeEl.focus();
-            console.log('about me', aboutMeEl);
+            var aboutMeSection = document.getElementById("about_me_section");
+            aboutMeSection.setAttribute("aria-hidden", "false")
 
         }
 
@@ -35,6 +46,9 @@
             applyHomeStyles(element, false);
             var contactMeEl = document.getElementById("contact_me_header");
             contactMeEl.focus();
+            var contactMeSection = document.getElementById("contact_me_section");
+            contactMeSection.setAttribute("aria-hidden", "false")
+
         } 
         
         function goToHome() {
@@ -67,9 +81,7 @@
 <body id="body" class="home">
 
     <!-- Home -->
-    <div id="left-bar">
-        <div class="close-icon" onclick="goToHome()" role="button" aria-label="Return to home"></div>
-    </div>
+    <div id="close_icon" onclick="goToHome()" role="button" aria-label="Return to home"></div>
     <div id="home_section">
         <h1 class="sr-only" id="home_header" tabindex="0">Welcome to Elle Neubauer's Personal Site</h2>
         <img id="hero_img" src="slide.png" alt="Elle Neubauer wearing a yellow jumper and smiling as she slides onto the screen"
@@ -107,7 +119,7 @@
     <div class="square about-me-square"></div>
     <div class="content-section" id="about_me_section">
         <h2 id="about_me_header" tabindex="0">About Me</h2>
-        <h3>Some Elle Neubauer facts just for you</h3>
+        <h3>Some Elle Neubauer facts, just for you</h3>
         <p>
             With extensive experience as an organizer and a software engineer, 
             I'm interested in writing code that empowers people to change the world. 
@@ -115,7 +127,11 @@
             training formerly incarcerated folxs to code, empowering a local compost co-op and more.
         </p>
         <ul>
-            <li>Queer, kinky, poly, trans, anti-racist White, hearing, sighted, anxiety/depression</li>
+            <li>
+                Queer, kinky, poly, trans, anti-racist, 
+                <a href="https://www.washingtonpost.com/opinions/2020/07/22/why-white-should-be-capitalized/" target="_blank">White</a>,
+                hearing, sighted, anxiety/depression
+            </li>
 
             <li>
                 Skills: Web Development (React/Angular), Software Architecture, Distributed Processing,

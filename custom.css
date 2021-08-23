@@ -5,11 +5,17 @@ body {
   margin: 0;
   background-color: rgb(246, 167, 2);
   overflow: hidden;
+  font-family: "Besley", serif;
 }
 
 .sr-only {
   position: absolute;
   clip: rect(1px 1px 1px 1px);
+}
+
+h1,
+h2 {
+  font-family: "Pacifico", cursive;
 }
 
 /******** LANDING PAGE ********/
@@ -115,8 +121,7 @@ button:focus {
 }
 
 /******** OFF OF LANDING PAGE ********/
-.close-icon {
-  display: none;
+#close_icon {
   position: absolute;
   width: 5vw;
   height: 5vw;
@@ -127,8 +132,8 @@ button:focus {
     */
 }
 
-.close-icon:before,
-.close-icon:after {
+#close_icon:before,
+#close_icon:after {
   position: absolute;
   top: 2.5vw;
   content: " ";
@@ -138,18 +143,14 @@ button:focus {
   transition: transform 1s, height 1s;
 }
 
-.not-home .close-icon {
-  display: inherit;
-}
-
-.not-home .close-icon:before {
+.not-home #close_icon:before {
   transform: rotate(45deg);
 }
-.not-home .close-icon:after {
+.not-home #close_icon:after {
   transform: rotate(-45deg);
 }
-.not-home .close-icon:before,
-.not-home .close-icon:after {
+.not-home #close_icon:before,
+.not-home #close_icon:after {
   height: 2px;
 }
 
@@ -157,9 +158,7 @@ button:focus {
 
 .content-section {
   position: absolute;
-  width: 80vw;
   padding: 5vw;
-  opacity: 0;
 }
 
 .square {
@@ -182,13 +181,12 @@ button:focus {
 }
 
 #about_me_section {
-  display: none;
   transform: translate(-90vw, 0);
+  width: 75vw;
   transition: width 1.5s, opacity 1.5s, transform 1.5s;
 }
 
 .about-me #about_me_section {
-  display: inherit;
   transform: translate(10vw, 0);
   opacity: 1;
 }
@@ -256,14 +254,12 @@ button:focus {
 
 #contact_me_section {
   width: 35vw;
-  transform: translate(10vw, 100vh);
-  display: none;
+  transform: translate(10vw, -100vh);
+  transition: transform 1s;
 }
 
 .contact-me #contact_me_section {
   transform: translate(10vw, 0);
-  opacity: 1;
-  display: inherit;
 }
 
 .contact-me #hero_img {
