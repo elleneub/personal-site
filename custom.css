@@ -1,11 +1,14 @@
 body {
+  margin: 0;
+  font-family: "Besley", serif;
+}
+
+#body_wrapper {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  margin: 0;
   background-color: rgb(246, 167, 2);
   overflow: hidden;
-  font-family: "Besley", serif;
 }
 
 .sr-only {
@@ -30,6 +33,12 @@ img {
   margin-left: 0px;
   bottom: 0;
   transition: transform 1.5s;
+}
+
+@media only screen and (max-width: 550px) {
+  #hero_img {
+    max-height: 50vh;
+  }
 }
 
 #peaking_face_img,
@@ -159,6 +168,8 @@ button:focus {
 .content-section {
   position: absolute;
   padding: 5vw;
+  max-height: 90vh;
+  overflow: auto;
 }
 
 .square {
@@ -203,13 +214,16 @@ button:focus {
 
 .contact-icons {
   display: flex;
-  /* flex-wrap: nowrap; */
+  flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.contact-icons i {
+  padding-right: 5px;
 }
 
 .contact-icons a {
   color: black;
-  text-decoration: none;
   transition: color 0.25s;
   padding: 15px;
 }
@@ -221,6 +235,7 @@ button:focus {
 #face_img {
   /* width: 45vw; */
   max-height: 80vh;
+  max-width: 40vw;
   right: 0;
   bottom: 0;
   transform: translate(0, 100vh);
@@ -256,6 +271,7 @@ button:focus {
   width: 35vw;
   transform: translate(10vw, -100vh);
   transition: transform 1s;
+  max-height: 60vh;
 }
 
 .contact-me #contact_me_section {
@@ -264,4 +280,18 @@ button:focus {
 
 .contact-me #hero_img {
   transform: translate(10vw, 0);
+}
+
+@media only screen and (max-width: 600px) {
+  #contact_me_section {
+    width: 70vw;
+  }
+
+  .left-contact-me-square {
+    width: 85vw;
+  }
+
+  .right-contact-me-square {
+    margin-left: 90vw;
+  }
 }

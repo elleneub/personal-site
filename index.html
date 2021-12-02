@@ -1,151 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Elle Neubauer</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Elle Neubauer: Software Engineer, Organizer, Founder, Leader">
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Elle Neubauer: Software Engineer, Organizer, Founder, Leader"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://use.fontawesome.com/f380a848c4.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Besley&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Besley&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
     <script>
-        function applyHomeStyles(el, goingHome) {
-            var homeSection = document.getElementById("home_section");
-            var closeIcon = document.getElementById("close_icon");
-            var contactMeSection = document.getElementById("contact_me_section");
-            var aboutMeSection = document.getElementById("about_me_section");
-            if (goingHome) {
-                el.classList.remove("not-home");
-                el.classList.add("home");
-                homeSection.setAttribute("aria-hidden", "false")
-                closeIcon.setAttribute("aria-hidden", "true")
-                contactMeSection.setAttribute("aria-hidden", "true")
-                aboutMeSection.setAttribute("aria-hidden", "true")
-            } else {
-                el.classList.remove("home");
-                el.classList.add("not-home");
-                homeSection.setAttribute("aria-hidden", "true")
-                closeIcon.setAttribute("aria-hidden", "false")
-            }
+      function applyHomeStyles(el, goingHome) {
+        var homeSection = document.getElementById("home_section");
+        var closeIcon = document.getElementById("close_icon");
+        var contactMeSection = document.getElementById("contact_me_section");
+        var aboutMeSection = document.getElementById("about_me_section");
+        if (goingHome) {
+          el.classList.remove("not-home");
+          el.classList.add("home");
+          homeSection.setAttribute("aria-hidden", "false");
+          closeIcon.setAttribute("aria-hidden", "true");
+          contactMeSection.setAttribute("aria-hidden", "true");
+          aboutMeSection.setAttribute("aria-hidden", "true");
+        } else {
+          el.classList.remove("home");
+          el.classList.add("not-home");
+          homeSection.setAttribute("aria-hidden", "true");
+          closeIcon.setAttribute("aria-hidden", "false");
         }
+      }
 
-        function goToAboutMe() {
-            var element = document.getElementById("body");
-            element.classList.add("about-me");
-            applyHomeStyles(element, false);
-            var aboutMeEl = document.getElementById("about_me_header");
-            aboutMeEl.focus();
-            var aboutMeSection = document.getElementById("about_me_section");
-            aboutMeSection.setAttribute("aria-hidden", "false")
+      function goToAboutMe() {
+        var element = document.getElementById("body_wrapper");
+        element.classList.add("about-me");
+        applyHomeStyles(element, false);
+        var aboutMeEl = document.getElementById("about_me_header");
+        aboutMeEl.focus();
+        var aboutMeSection = document.getElementById("about_me_section");
+        aboutMeSection.setAttribute("aria-hidden", "false");
+      }
 
-        }
+      function goToContactMe() {
+        var element = document.getElementById("body_wrapper");
+        element.classList.add("contact-me");
+        applyHomeStyles(element, false);
+        var contactMeEl = document.getElementById("contact_me_header");
+        contactMeEl.focus();
+        var contactMeSection = document.getElementById("contact_me_section");
+        contactMeSection.setAttribute("aria-hidden", "false");
+      }
 
-        function goToContactMe() {
-            var element = document.getElementById("body");
-            element.classList.add("contact-me");
-            applyHomeStyles(element, false);
-            var contactMeEl = document.getElementById("contact_me_header");
-            contactMeEl.focus();
-            var contactMeSection = document.getElementById("contact_me_section");
-            contactMeSection.setAttribute("aria-hidden", "false")
+      function goToHome() {
+        var element = document.getElementById("body_wrapper");
+        element.classList.remove("about-me");
+        element.classList.remove("contact-me");
+        applyHomeStyles(element, true);
+        var homeEl = document.getElementById("home_header");
+        homeEl.focus();
+      }
+      function addHoverEvent() {
+        const element = document.getElementById("contact_me_button");
+        const faceElement = document.getElementById("peaking_face_img");
+        element.addEventListener("mouseover", (event) => {
+          console.log("Mouse in");
+          faceElement.classList.add("hover");
+        });
+        element.addEventListener("mouseout", (event) => {
+          console.log("Mouse out");
+          faceElement.classList.remove("hover");
+        });
+      }
 
-        } 
-        
-        function goToHome() {
-            var element = document.getElementById("body");
-            element.classList.remove("about-me");
-            element.classList.remove("contact-me");
-            applyHomeStyles(element, true);
-            var homeEl = document.getElementById("home_header");
-            homeEl.focus();
-
-        }
-        function addHoverEvent() {
-            const element = document.getElementById("contact_me_button");
-            const faceElement = document.getElementById("peaking_face_img");
-            element.addEventListener("mouseover", event => {
-                console.log("Mouse in");
-                faceElement.classList.add("hover");
-            });
-            element.addEventListener("mouseout", event => {
-                console.log("Mouse out");
-                faceElement.classList.remove("hover");
-            });
-        }
-
-        window.onload = addHoverEvent;
+      window.onload = addHoverEvent;
     </script>
-    <link rel="stylesheet" href="custom.css">
-</head>
-<html>
-<body id="body" class="home">
-
-    <!-- Home -->
-    <div id="close_icon" onclick="goToHome()" role="button" aria-label="Return to home"></div>
-    <div id="home_section">
-        <h1 class="sr-only" id="home_header" tabindex="0">Welcome to Elle Neubauer's Personal Site</h2>
-        <img id="hero_img" src="slide.png" alt="Elle Neubauer wearing a yellow jumper and smiling as she slides onto the screen"
-        tabindex="0">
-        <!-- <div class="button-area"> -->
-            <button id="about_me_button" onclick="goToAboutMe()">About Me</button>
-            <button id="contact_me_button" onclick="goToContactMe()">Contact Me</button>
-        <!-- </div> -->
-    </div>
-    <img id="peaking_face_img" src="rotated-face.png" aria-hidden="true">
-
-    <!-- Contact Me -->
-    <div class="square left-contact-me-square"></div>
-    <div class="square right-contact-me-square"></div>
-    <img id="face_img" src="face.png" aria-hidden="true">
-    <div class="content-section" id="contact_me_section">
-        <h2 id="contact_me_header" tabindex="0">Contact Me</h2>
-        <h3>I saw this contact info, and thought you might enjoy it...</h3>
-        <p>
-            I love mentoring, supporting social movements, and helping people to turn their needs and wants into a tangible technical (or not!) solution.
-            Sometimes I even like being employed or doing contract work. 
-            Feel free to check out my GitHub or reach out to me via Linkedin or email.
-        </p>
-        <div class="contact-icons">
-            <a href="https://github.com/elleneub/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/elle-neubauer/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin</a>
-            <a href="mailto:elle@elleneub.com" target="_blank">
-                <i class="fa fa-envelope" aria-hidden="true"></i> 
-                elle@elleneub.com
-            </a>
+    <link rel="stylesheet" href="custom.css" />
+  </head>
+  <html>
+    <body id="body" class="home">
+      <div id="body_wrapper">
+        <!-- Home -->
+        <div
+          id="close_icon"
+          onclick="goToHome()"
+          role="button"
+          aria-label="Return to home"
+          aria-hidden="true"
+        ></div>
+        <div id="home_section">
+          <h1 class="sr-only" id="home_header" tabindex="0">
+            Welcome to Elle Neubauer's Personal Site
+          </h1>
+          <img
+            id="hero_img"
+            src="slide.png"
+            alt="Elle Neubauer wearing a yellow jumper and smiling as she slides onto the screen"
+            tabindex="0"
+          />
+          <!-- <div class="button-area"> -->
+          <button id="about_me_button" onclick="goToAboutMe()">
+            About Elle
+          </button>
+          <button id="contact_me_button" onclick="goToContactMe()">
+            Contact Me
+          </button>
+          <!-- </div> -->
         </div>
-    </div>
+        <img id="peaking_face_img" src="rotated-face.png" aria-hidden="true" />
 
-    <!-- About Me -->
-    <div class="square about-me-square"></div>
-    <div class="content-section" id="about_me_section">
-        <h2 id="about_me_header" tabindex="0">About Me</h2>
-        <h3>Some Elle Neubauer facts, just for you</h3>
-        <p>
-            With extensive experience as an organizer and a software engineer, 
-            I'm interested in writing code that empowers people to change the world. 
-            I've worked on projects supporting the wellbeing of educators of color, 
-            training formerly incarcerated folxs to code, empowering a local compost co-op and more.
-        </p>
-        <ul>
+        <!-- Contact Me -->
+        <div class="square left-contact-me-square"></div>
+        <div class="square right-contact-me-square"></div>
+        <img id="face_img" src="face.png" aria-hidden="true" />
+        <div class="content-section" id="contact_me_section" aria-hidden="true">
+          <h2 id="contact_me_header" tabindex="0">Contact Me</h2>
+          <h3>I saw this contact info, and it made me think of you...</h3>
+          <p>
+            I love mentoring, supporting social movements, and helping people to
+            turn their needs and wants into a tangible technical (or not!)
+            solution. I also like being employed or taking the occasional
+            contract job. Check out my GitHub or feel free to reach out to me
+            via Linkedin or email.
+          </p>
+          <div class="contact-icons">
+            <a href="https://github.com/elleneub/" target="_blank"
+              ><i class="fa fa-github" aria-hidden="true"></i>GitHub</a
+            >
+            <a href="https://www.linkedin.com/in/elle-neubauer/" target="_blank"
+              ><i class="fa fa-linkedin-square" aria-hidden="true"></i
+              >LinkedIn</a
+            >
+            <a href="mailto:elle@elleneub.com" target="_blank">
+              <i class="fa fa-envelope" aria-hidden="true"></i>elle@elleneub.com
+            </a>
+          </div>
+        </div>
+
+        <!-- About Me -->
+        <div class="square about-me-square"></div>
+        <div class="content-section" id="about_me_section" aria-hidden="true">
+          <h2 id="about_me_header" tabindex="0">About Elle</h2>
+          <h3>Some Elle Neubauer facts, just for you</h3>
+          <p>
+            With extensive experience as an organizer and a software engineer,
+            I'm interested in writing code that empowers people to change the
+            world. I've worked on projects supporting the wellbeing of educators
+            of color, helping cover costs for those navigating incarceration,
+            empowering a local compost co-op and more. I'm currently a Senior
+            Software Engineer at
+            <a href="https://emergentworks.org/" target="_blank"
+              >Emergent Works</a
+            >.
+          </p>
+          <ul>
             <li>
-                Queer, kinky, poly, trans, anti-racist, 
-                <a href="https://www.washingtonpost.com/opinions/2020/07/22/why-white-should-be-capitalized/" target="_blank">White</a>,
-                hearing, sighted, anxiety/depression
+              Queer, kinky, poly, trans, anti-racist,
+              <a
+                href="https://www.washingtonpost.com/opinions/2020/07/22/why-white-should-be-capitalized/"
+                target="_blank"
+                >White</a
+              >, hearing, sighted, anxiety/depression
             </li>
 
             <li>
-                Skills: Web Development (React/Angular), Software Architecture, Distributed Processing,
-                Cloud Infrastructure, Mobile First Development, Database Systems
+              Skills: Web Development (React/Angular), Software Architecture,
+              Distributed Processing, Cloud Infrastructure, Mobile First
+              Development, Database Systems
             </li>
-            <li>My take: Websites that aren't working to be accessible to their audience shouldn't exist</li>
+            <li>
+              My take: Websites that aren't working to be accessible to their
+              audience shouldn't exist
+            </li>
             <li>5+ years full stack web development experience</li>
             <li>4 years organizing experience</li>
             <li>
-                Pronouns: she/her/<a href="https://neopronounfaq.tumblr.com/post/185595241964/guide-to-faefaer-pronouns" target="_blank">fae/faer</a>
+              Pronouns: she/her/<a
+                href="https://neopronounfaq.tumblr.com/post/185595241964/guide-to-faefaer-pronouns"
+                target="_blank"
+                >fae/faer</a
+              >
             </li>
-        </ul>
-    </div>
-
-</body>
+          </ul>
+        </div>
+      </div>
+    </body>
+  </html>
 </html>
-
