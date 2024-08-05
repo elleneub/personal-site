@@ -11,11 +11,11 @@ jobs:
       - uses: mostlytyped/s3-put-action@v1.0.0
         with:
           args: --acl-public
-          env: |
-            LOCAL_FILE: ./
-            REMOTE_FILE: personal-site-upload
-            AWS_ENDPOINT: ${{ vars.AWS_ENDPOINT }}
-            AWS_BUCKET: ${{ vars.AWS_BUCKET }}
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            INCLUDE_SHA256: true
+        env:
+          LOCAL_FILE: ./
+          REMOTE_FILE: personal-site-upload
+          AWS_ENDPOINT: ${{ vars.AWS_ENDPOINT }}
+          AWS_BUCKET: ${{ vars.AWS_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          INCLUDE_SHA256: true
