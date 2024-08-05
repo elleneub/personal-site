@@ -8,6 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: keithweaver/aws-s3-github-action@master
         with:
           command: cp
