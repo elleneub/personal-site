@@ -2,11 +2,19 @@
 
 ## Notes
 
-Made using VanillaJS and a bunch of fun css transitions. If you want to copy it all go right ahead!
+Made using VanillaJS and a some of fun but simple css transitions. If you want to copy it all go right ahead!
 
-Currently this sits at [elleneub.com/test](http://elleneub.com/test) until it's mobile-ready, but it will replace my old website build
-off a template at [elleneub.com](http://elleneub.com).
+Currently this sits at [elleneub.com](http://elleneub.com). And is deployed on push to my "base" branch.
+
+Deployment and Serving uses:
+
+- Github Actions
+- s3
+- Cloudfront
+- AWS Certificate Manager for SSL
+- Route 53
 
 ## Todo
 
 - Make a better mobile experience
+- Invalidate Cloudfront cache on push.
